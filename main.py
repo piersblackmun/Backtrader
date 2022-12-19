@@ -20,15 +20,15 @@ print (f'Starting Account Balance: {cerebro.broker.getvalue()}')
 
 # Define and configure dataset 
 data = bt.feeds.YahooFinanceCSVData(
-           dataname='data/BTC-GBP.csv',
-           fromdate=datetime.datetime(2020, 1, 1),
+           dataname='data/AAPL.csv',
+           fromdate=datetime.datetime(2015, 1, 1),
            todate=datetime.datetime(2022, 1, 1)
            )
 
 
 # Add data, strategy and trade analyzer
 cerebro.adddata(data)
-cerebro.addstrategy(RMI)
+cerebro.addstrategy(RSI)
 cerebro.addanalyzer(bt.analyzers.TradeAnalyzer,_name="Basic_stats")
 
 #Run application
