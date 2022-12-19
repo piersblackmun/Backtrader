@@ -15,13 +15,13 @@ from strategies.RMI import RMI
 cerebro = bt.Cerebro()
 
 # Set account margin
-cerebro.broker.setcash(10000)
+cerebro.broker.setcash(1000)
 print (f'Starting Account Balance: {cerebro.broker.getvalue()}')
 
 # Define and configure dataset 
 data = bt.feeds.YahooFinanceCSVData(
            dataname='data/BTC-GBP.csv',
-           fromdate=datetime.datetime(2015, 1, 1),
+           fromdate=datetime.datetime(2020, 1, 1),
            todate=datetime.datetime(2022, 1, 1)
            )
 
@@ -35,7 +35,7 @@ cerebro.addanalyzer(bt.analyzers.TradeAnalyzer,_name="Basic_stats")
 strats = cerebro.run()
 strat = strats[0]
 
-# Generate GUI and plot trades ut
+# Generate GUI and plot trades 
 cerebro.plot()
 print (f'Ending Account Balance: {cerebro.broker.getvalue()}')
 
